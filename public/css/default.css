@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    min-width: 980px;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+header {
+    padding: 25px 0;
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+}
+
+div.title {
+    float: left;
+    margin: 0 40pt 0 80pt;
+    color: #acb5bd;
+    font: 400 36pt /*'El Messiri',*/ 'Fira Sans Extra Condensed', sans-serif /*'Cormorant Infant', serif*/;
+}
+
+div.addplacectl {
+    float: right;
+    margin: 16px 80pt 0 0;
+    color: #ffffff;
+    background-color: #8c959d/*#6c757d*/;
+    border-radius: 121px;
+    font: 400 13pt 'Fira Sans Extra Condensed', sans-serif;
+    cursor: pointer;
+}
+
+div.comeback {
+    float: right;
+    margin: 16px 10pt 0 0;
+    padding: 7px 10pt;
+    color: #ffffff;
+    background-color: #8c959d/*#6c757d*/;
+    border-radius: 121px;
+    font: 400 13pt 'Fira Sans Extra Condensed', sans-serif;
+    cursor: pointer;
+}
+
+.plus {
+    width: 26px;
+    padding: 5px;
+    padding: 5px;
+    text-align: center;
+    display: inline-block;
+    background-color: #4c555d;
+    font-size: 15pt;
+    border-radius: 121px;
+    opacity: 0.8;
+}
+
+.plabel {
+    padding: 0 12pt 0 4pt;
+    display: inline-block;
+}
+
+a.latent {
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    display: inline-block;
+}
+
+div.listpad {
+    margin: 20px 80pt;
+}
+
+div.fpholder {
+    width: 280px;
+    height: 140px;
+    margin-right: 20pt;
+    margin-bottom: 20px;
+    border: 2px solid #acb5bd;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+div.pldata {
+    width: 210px;
+    height: 100%;
+    padding: 20px 20pt;
+    text-align: right;
+    vertical-align: bottom;
+    background-color: #acb5bd;
+    border-radius: 7px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    display: table-cell;
+    cursor: pointer;
+}
+
+div.pladdphoto {
+    width: 70px;
+    height: 140px;
+    text-align: center;
+    vertical-align: middle;
+    background: transparent url("/images/photo.png") no-repeat center center;
+    display: table-cell;
+    cursor: pointer;
+}
+
+div.placename {
+    margin-bottom: 6px;
+    color: #ffffff;
+    font: 400 15pt 'Fira Sans Extra Condensed', sans-serif;
+    opacity: 0.75;
+}
+
+div.placetype {
+    color: #4c555d;
+    font: 400 11pt 'Fira Sans Extra Condensed', sans-serif;
+}
+
+div.photoframe {
+    margin: 0 40pt 50px 10pt;
+    width: 800px;
+    text-align: right;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+div.photodata {
+    position: relative;
+    width: 135px;
+    right: -640px;
+    bottom: -90%;
+    text-align: center;
+    padding: 5px 10pt;
+    font: 400 11pt 'Fira Sans Extra Condensed', sans-serif;
+    background-color: #ffffff;
+    opacity: 0.7;
+}
+
+div.error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 0;
+    background-color: #990000;
+}
+
+.error span {
+    margin: 0 10pt;
+    color: #f0f0f0;
+    font: 400 10pt 'Fira Sans Extra Condensed', sans-serif;
+}
