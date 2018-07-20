@@ -65,7 +65,7 @@ class PlaceController extends Controller
         $place = Place::first();
         $places = Place::All()->all();
 
-        return view('addphoto', compact('places', 'place', 'referer'));
+        return ($places) ? view('addphoto', compact('places', 'place', 'referer')) : redirect('places');
     }
 
     public function doAddPhoto(PictureRequest $request)

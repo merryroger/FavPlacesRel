@@ -23,6 +23,11 @@ div.title {
     font: 400 36pt /*'El Messiri',*/ 'Fira Sans Extra Condensed', sans-serif /*'Cormorant Infant', serif*/;
 }
 
+nav {
+    float: right;
+    margin-right: 80pt;
+}
+
 div.addplacectl {
     float: right;
     margin: 16px 80pt 0 0;
@@ -62,9 +67,19 @@ div.comeback {
 }
 
 a.latent {
-    position: relative;
     text-decoration: none;
-    color: #ffffff;
+    color: #6c757d;
+    border-bottom: 1px solid #8c959d;
+    display: inline-block;
+}
+
+div.active {
+    background-color: #e8e8e8;
+}
+
+.active span {
+    color: #6c757d;
+    border-bottom: 1px solid #e8e8e8;
     display: inline-block;
 }
 
@@ -151,4 +166,10 @@ div.error {
     margin: 0 10pt;
     color: #f0f0f0;
     font: 400 10pt 'Fira Sans Extra Condensed', sans-serif;
+}
+
+div.mitem {
+    margin: 2px 0;
+    padding: 3px 20pt;
+    font: 400 11pt 'Fira Sans Extra Condensed', sans-serif;
 }
