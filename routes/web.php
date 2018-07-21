@@ -15,13 +15,9 @@ Route::middleware(['menu'])->group(function () {
 
     Route::prefix('places')->group(function () {
 
-        Route::name('exec.')->group(function () {
+        Route::post('/photos/add', 'PlaceController@doAddPhoto')->name('add_photo');
 
-            Route::post('/photos/add', 'PlaceController@doAddPhoto')->name('add_photo');
-
-            Route::post('/create', 'PlaceController@doAddPlace')->name('add_place');
-
-        });
+        Route::post('/create', 'PlaceController@doAddPlace')->name('add_place');
 
         Route::name('request.')->group(function () {
 

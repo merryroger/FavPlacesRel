@@ -7,7 +7,7 @@
 @endsection
 
 @section('form')
-    <form action="{{ route('exec.add_place') }}" method="post">
+    <form action="{{ route('add_place') }}" method="post">
         @csrf
         <input type="text" name="name" class="ff" value="" placeholder="Название места" tabindex="1" required
                autofocus/><br/>

@@ -42,9 +42,8 @@ class MenuMiddleware
                 case 'show.place':
                     if ($route == 'request.add_any_photo') {
                         $name = urldecode($request->id);
-                        $place = Place::place($name)->first();
                         $route = 'request.add_photo';
-                        $menu[] = preg_replace(array("/#href#/", "/#label#/"), array(route($route, [$place->name]), $label), $template);
+                        $menu[] = preg_replace(array("/#href#/", "/#label#/"), array(route($route, [$name]), $label), $template);
                         break;
                     }
                 default:

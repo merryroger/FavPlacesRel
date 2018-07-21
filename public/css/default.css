@@ -23,6 +23,12 @@ div.title {
     font: 400 36pt /*'El Messiri',*/ 'Fira Sans Extra Condensed', sans-serif /*'Cormorant Infant', serif*/;
 }
 
+.title p {
+    padding: 8px 0 0 2pt;
+    color: #cccccc;
+    font-size: 19pt;
+}
+
 nav {
     float: right;
     margin-right: 80pt;

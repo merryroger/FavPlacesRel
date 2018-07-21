@@ -42,11 +42,11 @@ class PlaceController extends Controller
 
     public function showPlace($id)
     {
-        $name = urldecode($id);
-        $place = Place::place($name)->first();
+        $placename = urldecode($id);
+        $place = Place::place($placename)->first();
         $listset = Picture::pictureList($place->id)->get();
 
-        return view('showplace', compact('place', 'listset'));
+        return view('showplace', compact('placename', 'listset'));
     }
 
     public function addPhoto(Request $request, $id)
@@ -54,7 +54,7 @@ class PlaceController extends Controller
         $referer = $request->server('HTTP_REFERER');
         $name = urldecode($id);
         $place = Place::place($name)->first();
-        $places = Place::All()->all();
+        $places = Place::all();
 
         return view('addphoto', compact('places', 'place', 'referer'));
     }
@@ -62,10 +62,9 @@ class PlaceController extends Controller
     public function addAnyPhoto()
     {
         $referer = route('show.place_list');
-        $place = Place::first();
-        $places = Place::All()->all();
+        $places = Place::all();
 
-        return ($places) ? view('addphoto', compact('places', 'place', 'referer')) : redirect('places');
+        return ($places) ? view('addphoto', compact('places', 'referer')) : redirect('places');
     }
 
     public function doAddPhoto(PictureRequest $request)
@@ -80,7 +79,7 @@ class PlaceController extends Controller
         $place_id = intval($request->input('place_id'));
         $place = Place::placeById($place_id)->first();
 
-        Picture::create(['place_id' => $place->id, 'location' => $location, 'width' => $width, 'height' => $height]);
+        Picture::create(['place_id' => $place_id, 'location' => $location, 'width' => $width, 'height' => $height]);
 
         return redirect("places/{$place->name}/");
     }

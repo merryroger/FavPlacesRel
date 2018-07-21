@@ -1,5 +1,5 @@
 <header>
-    <div class="title">{{ $place->name }}</div>
+    <div class="title">{{ $placename }}</div>
     <nav>#menu#</nav>
     <br clear="all"/>
 </header>
