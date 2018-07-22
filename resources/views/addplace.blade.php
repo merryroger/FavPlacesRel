@@ -3,11 +3,11 @@
 @section('title', 'Создание новой записи')
 
 @section('hdr')
-    @include('formheader', ['text' => 'Моё новое место'])
+    @include('formheader', ['text' => 'Моё новое место', 'cr' => \Illuminate\Support\Facades\Route::currentRouteName()])
 @endsection
 
 @section('form')
-    <form action="{{ route('add_place') }}" method="post">
+    <form action="{{ route('place.post_form') }}" method="post">
         @csrf
         <input type="text" name="name" class="ff" value="" placeholder="Название места" tabindex="1" required
                autofocus/><br/>
@@ -18,7 +18,7 @@
         </select>
         <div class="fmctrls">
             <button type="button" class="cancel" tabindex="3"
-                    onclick="document.location.href='{{ route('show.place_list') }}'; return false;">Отменить
+                    onclick="document.location.href='{{ route('place.show_all') }}'; return false;">Отменить
             </button>
             <button type="submit" class="do" tabindex="4">Создать</button>
         </div>

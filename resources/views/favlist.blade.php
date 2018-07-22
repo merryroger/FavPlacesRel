@@ -12,14 +12,14 @@
           rel="stylesheet">
     @if($listset->all())
         <link rel="stylesheet" href="/css/default.css" type="text/css">
-    @elseif(!$listset->all())
+    @else
         <link rel="stylesheet" href="/css/emptylist.css" type="text/css">
     @endif
 </head>
 <body>
     @if($listset->all())
         @yield('listhdr')
-    @elseif(!$listset->all())
+    @else
         @yield('emptyhdr')
     @endif
 </body>

@@ -11,32 +11,30 @@
 |
 */
 
-Route::middleware(['menu'])->group(function () {
+Route::prefix('places')->group(function () {
 
-    Route::prefix('places')->group(function () {
+    Route::name('photo.')->group(function () {
 
-        Route::post('/photos/add', 'PlaceController@doAddPhoto')->name('add_photo');
+        Route::post('/photos/add', 'PlaceController@doAddPhoto')->name('post_form');
 
-        Route::post('/create', 'PlaceController@doAddPlace')->name('add_place');
-
-        Route::name('request.')->group(function () {
-
-            Route::get('/{id}/photos/add', 'PlaceController@addPhoto')->name('add_photo');
-
-            Route::get('/create', 'PlaceController@addPlace')->name('add_place');
-
-        });
-
-        Route::name('show.')->group(function () {
-            Route::get('/{id}/', 'PlaceController@showPlace')->name('place');
-
-            Route::get('/', 'PlaceController@placeList')->name('place_list');
-        });
+        Route::get('/{id}/photos/add', 'PlaceController@addPhoto')->name('get_linked_form');
 
     });
 
-    Route::get('/photos/add', 'PlaceController@addAnyPhoto')->name('request.add_any_photo');
+    Route::name('place.')->group(function () {
+
+        Route::post('/create', 'PlaceController@doAddPlace')->name('post_form');
+
+        Route::get('/create', 'PlaceController@addPlace')->name('get_form');
+
+        Route::get('/{id}/', 'PlaceController@showPlace')->name('show');
+
+        Route::get('/', 'PlaceController@placeList')->name('show_all');
+
+    });
 
 });
+
+Route::get('/photos/add', 'PlaceController@addAnyPhoto')->name('photo.get_wildcard_form')->middleware(['menu']);
 
 Route::redirect('/', 'places');

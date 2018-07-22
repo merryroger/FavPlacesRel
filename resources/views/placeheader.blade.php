@@ -1,6 +1,7 @@
 <header>
     <div class="title">{{ $placename }}</div>
-    <nav>#menu#</nav>
+    <nav>
+        @include('menu', ['place' => $placename, 'cr' => \Illuminate\Support\Facades\Route::currentRouteName()])
+    </nav>
     <br clear="all"/>
 </header>
-

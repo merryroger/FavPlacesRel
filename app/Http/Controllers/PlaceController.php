@@ -37,7 +37,7 @@ class PlaceController extends Controller
         $newplace = $request->only('name', 'placetype_id');
         Place::create($newplace);
 
-        return redirect()->route('show.place_list');
+        return redirect()->route('place.show_all');
     }
 
     public function showPlace($id)
@@ -56,15 +56,13 @@ class PlaceController extends Controller
         $place = Place::place($name)->first();
         $places = Place::all();
 
-        return view('addphoto', compact('places', 'place', 'referer'));
+        return view('add_linked_photo', compact('places', 'place', 'referer'));
     }
 
     public function addAnyPhoto()
     {
-        $referer = route('show.place_list');
         $places = Place::all();
-
-        return ($places) ? view('addphoto', compact('places', 'referer')) : redirect('places');
+        return view('add_wildcard_photo', compact('places'));
     }
 
     public function doAddPhoto(PictureRequest $request)
