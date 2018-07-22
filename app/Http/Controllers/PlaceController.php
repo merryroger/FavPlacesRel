@@ -44,7 +44,7 @@ class PlaceController extends Controller
     {
         $placename = urldecode($id);
         $place = Place::place($placename)->first();
-        $listset = Picture::pictureList($place->id)->get();
+        $listset = Place::find($place->id)->pictures;
 
         return view('showplace', compact('placename', 'listset'));
     }
@@ -68,7 +68,6 @@ class PlaceController extends Controller
     public function doAddPhoto(PictureRequest $request)
     {
         $file = $request->file('image');
-        //$location = $file->store('collection', 'public');
         $path = $file->storeAs('collection', $file->getClientOriginalName(), 'public');
         list($width, $height) = getimagesize(storage_path('app/public') . "/{$path}");
 

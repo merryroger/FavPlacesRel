@@ -8,6 +8,10 @@ class Place extends Model
 {
     protected $fillable = ['id', 'placetype_id', 'name'];
 
+    public function pictures() {
+        return $this->hasMany(Picture::class);
+    }
+
     public function scopePlace($query, $placename)
     {
         return $query->where('name', $placename);
