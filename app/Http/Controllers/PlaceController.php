@@ -19,8 +19,9 @@ class PlaceController extends Controller
         $placetypes = Placetype::all();
         $types = [];
 
-        foreach ($placetypes as $pt)
+        foreach ($placetypes as $pt) {
             $types[$pt->id] = $pt->name;
+        }
 
         return view('placelist', compact('listset', 'types'));
     }
@@ -42,18 +43,18 @@ class PlaceController extends Controller
 
     public function showPlace($id)
     {
-        $placename = urldecode($id);
-        $place = Place::place($placename)->first();
-        $listset = Place::find($place->id)->pictures;
+        $place = Place::placeById($id)->first();
+        $listset = $place->pictures->sortByDesc(function ($query) {
+            return $query->created_at;
+        });
 
-        return view('showplace', compact('placename', 'listset'));
+        return view('showplace', compact('place', 'listset'));
     }
 
     public function addPhoto(Request $request, $id)
     {
         $referer = $request->server('HTTP_REFERER');
-        $name = urldecode($id);
-        $place = Place::place($name)->first();
+        $place = Place::placeById($id)->first();
         $places = Place::all();
 
         return view('add_linked_photo', compact('places', 'place', 'referer'));
@@ -74,11 +75,10 @@ class PlaceController extends Controller
         $location = Storage::url($path);
 
         $place_id = intval($request->input('place_id'));
-        $place = Place::placeById($place_id)->first();
 
         Picture::create(['place_id' => $place_id, 'location' => $location, 'width' => $width, 'height' => $height]);
 
-        return redirect("places/{$place->name}/");
+        return redirect("places/{$place_id}/");
     }
 }
 

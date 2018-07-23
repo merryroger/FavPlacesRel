@@ -8,4 +8,10 @@ class Placetype extends Model
 {
     protected $fillable = [];
     public $timestamps = false;
+
+    public function place()
+    {
+        return $this->belongsTo(Place::class);
+    }
+
 }

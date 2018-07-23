@@ -17,7 +17,7 @@ class MenuMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $places = Place::all()->toArray();
+        $places = Place::count();
         return ($places) ? $next($request) : redirect()->route('place.show_all');
     }
 }

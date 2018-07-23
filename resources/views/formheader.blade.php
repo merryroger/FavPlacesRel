@@ -1,8 +1,8 @@
 <header>
     @if(isset($place))
-        <div class="title">{{ $text }}<p>{{ $place }}</p></div>
+        <div class="title">{{ $text }}<p>{{ $place->name }}</p></div>
         <nav>
-            @include('menu', ['cr' => $cr, 'place' => $place])
+            @include('menu', ['cr' => $cr, 'place' => $place->id])
         </nav>
     @else
         <div class="title">{{ $text }}</div>

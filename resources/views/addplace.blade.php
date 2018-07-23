@@ -3,7 +3,7 @@
 @section('title', 'Создание новой записи')
 
 @section('hdr')
-    @include('formheader', ['text' => 'Моё новое место', 'cr' => \Illuminate\Support\Facades\Route::currentRouteName()])
+    @include('formheader', ['text' => 'Моё новое место', 'cr' => Route::currentRouteName()])
 @endsection
 
 @section('form')

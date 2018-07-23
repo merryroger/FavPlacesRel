@@ -3,7 +3,7 @@
 @section('title', 'Загрузка новой фотографии')
 
 @section('hdr')
-    @include('formheader', ['text' => 'Новая фотка', 'cr' => \Illuminate\Support\Facades\Route::currentRouteName()])
+    @include('formheader', ['text' => 'Новая фотка', 'cr' => Route::currentRouteName()])
 @endsection
 
 @section('form')

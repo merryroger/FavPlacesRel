@@ -10,14 +10,14 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Infant|El+Messiri|Fira+Sans+Extra+Condensed"
           rel="stylesheet">
-    @if($listset->all())
+    @if($listset->count())
         <link rel="stylesheet" href="/css/default.css" type="text/css">
     @else
         <link rel="stylesheet" href="/css/emptylist.css" type="text/css">
     @endif
 </head>
 <body>
-    @if($listset->all())
+    @if($listset->count())
         @yield('listhdr')
     @else
         @yield('emptyhdr')
